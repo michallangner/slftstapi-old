@@ -14,3 +14,15 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('exercises',  ['uses' => 'ExerciseController@findAll']);
+  
+    $router->get('exercises/{id}', ['uses' => 'ExerciseController@find']);
+  
+    $router->post('exercises', ['uses' => 'ExerciseController@create']);
+  
+    $router->delete('exercises/{id}', ['uses' => 'ExerciseController@delete']);
+  
+    $router->put('exercises/{id}', ['uses' => 'ExerciseController@update']);
+  });
