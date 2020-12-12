@@ -20,13 +20,13 @@ $router->get('foo', function () {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('tests',  ['uses' => 'SlfTstController@showAllTests']);
+    $router->get('exercises',  ['uses' => 'ExerciseController@findAll']);
   
-    $router->get('tests/{id}', ['uses' => 'SlfTstController@showOneAuthor']);
+    $router->get('exercises/{id}', ['uses' => 'ExerciseController@find']);
   
-    $router->post('tests', ['uses' => 'SlfTstController@create']);
+    $router->post('exercises', ['uses' => 'ExerciseController@create']);
   
-    $router->delete('tests/{id}', ['uses' => 'SlfTstController@delete']);
+    $router->delete('exercises/{id}', ['uses' => 'ExerciseController@delete']);
   
-    $router->put('tests/{id}', ['uses' => 'SlfTstController@update']);
+    $router->put('exercises/{id}', ['uses' => 'ExerciseController@update']);
   });
