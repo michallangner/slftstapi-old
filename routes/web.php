@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return 'hmm: '.$router->app->version();
 });
 
 $router->get('foo', function () {
