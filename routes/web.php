@@ -14,3 +14,19 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('foo', function () {
+    return 'Hello foo';
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('tests',  ['uses' => 'SlfTstController@showAllTests']);
+  
+    $router->get('tests/{id}', ['uses' => 'SlfTstController@showOneAuthor']);
+  
+    $router->post('tests', ['uses' => 'SlfTstController@create']);
+  
+    $router->delete('tests/{id}', ['uses' => 'SlfTstController@delete']);
+  
+    $router->put('tests/{id}', ['uses' => 'SlfTstController@update']);
+  });
